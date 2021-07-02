@@ -6,6 +6,7 @@ module.exports = {
   mode: "development",
   context: __dirname,
   entry: "./test/dev-hook.jsx",
+  // 打包在项目目录下生成js文件，html文件写死了固定请求这个js
   output: {
     path: "/",
     filename: "bundle.js",

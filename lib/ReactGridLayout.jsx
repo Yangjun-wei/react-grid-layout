@@ -4,20 +4,27 @@ import * as React from "react";
 import isEqual from "lodash.isequal";
 import classNames from "classnames";
 import {
+  // 容器内容最低点
   bottom,
   childrenEqual,
   cloneLayoutItem,
   compact,
   compactType,
   fastRGLPropsEqual,
+  // 获取所有与layoutItem交错的元素
   getAllCollisions,
+  // 从layout数组中找到layout
   getLayoutItem,
+  // 移动元素
   moveElement,
+  // 空函数
   noop,
+  // 同步layout数组与世界的reactNode元素数组
   synchronizeLayoutWithChildren,
   withLayoutItem
 } from "./utils";
 
+// 计算x、y坐标
 import { calcXY } from "./calculateUtils";
 
 import GridItem from "./GridItem";

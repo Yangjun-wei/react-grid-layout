@@ -3,8 +3,17 @@ import React from "react";
 import PropTypes from "prop-types";
 import { DraggableCore } from "react-draggable";
 import { Resizable } from "react-resizable";
-import { fastPositionEqual, perc, setTopLeft, setTransform } from "./utils";
 import {
+  // 判断两个Position是否完全相同
+  fastPositionEqual,
+  // 小数转换成百分数字符串
+  perc,
+  // 数值转换成字符串对象
+  setTopLeft,
+  // 根据数值获取translate的样式对象
+  setTransform } from "./utils";
+import {
+  // 将一个layoutItem的参数转成px值的对象，返回
   calcGridItemPosition,
   calcGridItemWHPx,
   calcGridColWidth,
@@ -127,6 +136,7 @@ export default class GridItem extends React.Component<Props, State> {
     h: PropTypes.number.isRequired,
 
     // All optional
+    // 校验
     minW: function (props: Props, propName: string) {
       const value = props[propName];
       if (typeof value !== "number") return new Error("minWidth not Number");
@@ -134,6 +144,7 @@ export default class GridItem extends React.Component<Props, State> {
         return new Error("minWidth larger than item width/maxWidth");
     },
 
+    // 校验
     maxW: function (props: Props, propName: string) {
       const value = props[propName];
       if (typeof value !== "number") return new Error("maxWidth not Number");
@@ -205,6 +216,7 @@ export default class GridItem extends React.Component<Props, State> {
     transformScale: 1
   };
 
+  // 当前GridItem的状态
   state: State = {
     resizing: null,
     dragging: null,
@@ -329,6 +341,7 @@ export default class GridItem extends React.Component<Props, State> {
   }
 
   /**
+   * 添加一个GridItem到列表中
    * Mix a Draggable instance into a child.
    * @param  {Element} child    Child element.
    * @return {Element}          Child wrapped in Draggable.

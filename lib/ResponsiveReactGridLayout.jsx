@@ -4,19 +4,30 @@ import PropTypes from "prop-types";
 import isEqual from "lodash.isequal";
 
 import {
+  // 深度克隆layout数组
   cloneLayout,
+  // 同步layout数组和实际的reactNode数组，以reactNode数组为准
   synchronizeLayoutWithChildren,
+  // 校验layoutItem数组是否每个元素的x、y、w、h、i、static类型都正确
   validateLayout,
+  // 空函数，什么都不做
   noop,
+  // layout类型
   type Layout,
   type Pick
 } from "./utils";
 import {
+  // 从所有breakPoints中找出不大于width的breakPoints中的那一个最大的,返回breakPoints的名字
   getBreakpointFromWidth,
+  // 从breakPoints对象中根据breakPoints名字找一个number value
   getColsFromBreakpoint,
+  // 找到或生成一个layout
   findOrGenerateResponsiveLayout,
+  // layout类型，是一个对象
   type ResponsiveLayout,
+  // 函数类型
   type OnLayoutChangeCallback,
+  // 断点，对象
   type Breakpoints
 } from "./responsiveUtils";
 import ReactGridLayout from "./ReactGridLayout";
